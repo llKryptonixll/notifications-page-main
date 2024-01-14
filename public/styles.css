@@ -1,0 +1,212 @@
+:root{
+    --fontJakartaSans: "Plus Jakarta Sans", sans-serif;
+    --white: hsl(0, 0%, 100%);
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+    --very_light_grayish_blue: hsl(210, 60%, 98%);
+    --light_grayish_blue1: hsl(211, 68%, 94%);
+    --light_grayish_blue2: hsl(205, 33%, 90%);
+    --grayish_blue: hsl(219, 14%, 63%);
+    --dark_grayish_blue: hsl(219, 12%, 42%);
+    --very_dark_blue: hsl(224, 21%, 14%);
+}
+
+/* css reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--fontJakartaSans);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* styling */
+main{
+    min-height: 100vh;
+    background-color: var(--very_light_grayish_blue);
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.content__wrapper{
+    background-color: var(--white);
+    max-width: 740px;
+    width: 100%;
+    box-shadow: 5px 5px 15px rgb(241, 241, 241);
+    border-radius: 15px;
+    padding: 30px 40px 15px 40px;
+    display: grid;
+    align-content: start;
+    gap: 20px;
+}
+
+.header, .header__content-wrapper{
+    display: flex;
+    align-items: center;
+}
+.header{
+    justify-content: space-between;
+}
+h1{
+    font-size: clamp(1.2rem, 5vw, 1.7rem);
+    color: var(--very_dark_blue);
+    margin-right: 8px;
+}
+.header__notification-count{
+    background-color: var(--blue);
+    width: 35px;
+    border-radius: 5px;
+    color: var(--white);
+    text-align: center;
+}
+.header__mark-all-btn{
+    color: var(--dark_grayish_blue);
+    font-weight: 500;
+    transition: 250ms;
+}
+.header__mark-all-btn:hover{
+    color: var(--blue);
+}
+
+.message__list{
+    display: grid;
+    gap: 10px;
+}
+.message__list-item{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+.message__list-item:last-child{
+    padding-bottom: 0;
+}
+.message__text-wrapper{
+    line-height: 17px;
+}
+.message__avatar{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    align-self: self-start;
+}
+.message__author, .message__reaction, .message__notification, .message__timestamp{
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+.message__author{
+    font-weight: bold;
+    color: var(--very_dark_blue);
+    cursor: pointer;
+    transition: 250ms;
+}
+.message__author:hover{
+    color: var(--blue);
+}
+.message__reaction{
+    color: var(--dark_grayish_blue);
+    font-weight: 500;
+}
+.message__notification{
+    color: var(--dark_grayish_blue);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 250ms;
+}
+.message__notification:hover{
+    color: var(--blue);
+}
+.message__unread-dot{
+    display: inline-block;
+    width: 8px; 
+    height: 8px; 
+    background-color: var(--red); 
+    border-radius: 50%;
+} 
+.message__timestamp{
+    color:var(--grayish_blue);
+}
+.message__content-wrapper{
+    display: grid;
+    gap: 10px;
+}
+.message__private{
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    color: var(--dark_grayish_blue);
+    font-weight: 500;
+    border: 1px solid var(--light_grayish_blue2);
+    cursor: pointer;
+    transition: 250ms;
+    margin-top: 10px;
+}
+.message__private:hover{
+    background-color: var(--light_grayish_blue1);
+}
+.message__image{
+    align-self: flex-start;
+    margin-left: auto;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition: 250ms;
+    border: 2px solid transparent;
+    border-radius: 9px;
+}
+.message__image:hover{
+    border-color: var(--light_grayish_blue1);
+}
+.unread{
+    background-color: var(--very_light_grayish_blue);
+}
+
+@media (max-width: 800px) {
+    main{
+        padding: 0;
+    }
+    .content__wrapper{
+        border-radius: 0;
+        height: 100%;
+        max-width: 100%;
+        padding: 20px 20px 20px 10px;
+    }
+    .message__avatar{
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        align-self: self-start;
+    }
+}
